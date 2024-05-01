@@ -61,6 +61,7 @@ codReceita int not null,
 primary key(codIngrediente),
 foreign key(codReceita)references tbreceitas(codReceita)
 );
+
 create table tbmedidas(
 codMedida int not null auto_increment,
 grama char(1) default 'g',
@@ -78,6 +79,7 @@ codMedida int not null,
 primary key (codQtde),
 foreign key (codMedida)references tbmedidas(codMedida)
 );
+
 create table tbpassos(
 codPasso int not null auto_increment,
 mododePreparo varchar(100) not null,
@@ -87,6 +89,7 @@ descricao varchar(100) not null,
 primary key (codPasso),
 foreign key (codReceita)references tbreceitas(codReceita)
 );
+
 
 show tables;
 
@@ -263,25 +266,28 @@ update tbreceitas set nomeReceita = "Pizza de pepino atualizado" where codReceit
 -- Atualizando dados na tbavaliacoes
 update tbavaliacoes set comentario = "Isso está maravilhoso atualizado" where codAvaliacao = 1;
 update tbavaliacoes set dataComentario ="2024-02-08" where codAvaliacao = 2;
+UPDATE tbavaliacoes SET comentario = "Atualizando cométario", dataComentario = "2024/05/01" WHERE codAvaliacao = 1;
 
 
 -- Atualizando dados na tbingredientes
 update tbingredientes set nomeIngrediente = "Cacau atualizado" where codIngrediente = 1;
 update tbingredientes set rendeMedidas = "5 atualizado" where codIngrediente = 2;
+UPDATE tbingredientes SET nomeIngrediente = "NomeAtualizado",rendeMedidas = "Atulizando" WHERE codIngrediente = 1;
 
 
 -- Atualizando dados na tbmedidas
-
+UPDATE tbmedidas SET grama = "g" , quilograma = "Kg" , mililitro = "ml" where codMedida = 1;
 
 -- Atualizando dados na tbquantidades
 update tbquantidades set qtdeIngrediente = "Três xicaras de de oléo atualizado" where codQtde = 1;
 update tbquantidades set nomeQtde = "gramas atualizado"  where codQtde = 2;
-
+UPDATE tbquantidades SET nomeQtde = "NomeAtualizando", qtdeIngrediente = "QtdeAtualizada" WHERE codQtde = 3;
 
 -- Atualizando dados na tpassps
 update tbpassos set mododePreparo = "Aqueca o forno e coloque uma forma dentro atualizado" where codPasso = 1;
 update tbpassos set tempodePreparo = "5h atualizado com sucesso!" where codPasso = 2;
 update tbpassos set descricao = "Depois adicionar complemento ao seu gosto atualizado" where codPasso = 1;
+UPDATE tbpassos SET mododePreparo = "NomeAtualizado", tempodePreparo = "TempoAtualizado" WHERE codPasso = 1;
 
 -- apagando os dados da tabela 
 delete from tbpassos where codReceita = 5; 
