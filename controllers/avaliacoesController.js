@@ -65,6 +65,16 @@ router.put('/:codAvaliacao', (req,res) => {
     const {comentario,dataComentario} = req.body;
     const query = 'UPDATE tbavaliacoes SET comentario = ?, dataComentario = ? WHERE codAvaliacao = ?';
 
-    
+    dbConnection.query(query, [comentario,dataComentario,codAvaliacao], (err,result) => {
+        if(err) throw err;
+            res.status(201).json({
+                mensagem: 'Avaliação alterada com sucesso!',
+                    envio:{
+                        comentario: comentario,
+                        dataComentario: dataComentario
+
+                    }
+            })
+    })
 })
 module.exports = router;

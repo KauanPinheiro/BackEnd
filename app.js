@@ -20,6 +20,8 @@ const clientesRouters = require('./routers/clientesRouters')
 const receitasRouters = require('./routers/receitasRouters')
 const avaliacoesRouters = require('./routers/avaliacoesRouters')
 const ingredientesRouters = require('./routers/ingredientesRouters')
+const medidasRouters = require('./routers/medidasRouters')
+const quantidadesRouters = require('./routers/quantidadesRouters')
 
 //Using Routes
 app.use(express.json());
@@ -28,6 +30,8 @@ app.use('/clientes', clientesRouters);
 app.use('/receitas', receitasRouters);
 app.use('/avaliacoes', avaliacoesRouters);
 app.use('/ingredientes', ingredientesRouters);
+app.use('/medidas', medidasRouters);
+app.use('/quantidades', quantidadesRouters);
 
 //configuração de uma rota para raiz ('/') da aplicação
 app.get('/', (req, res) => {

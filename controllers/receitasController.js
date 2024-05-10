@@ -22,4 +22,9 @@ router.get('/:codReceita', (req,res) => {
     })
 })
 
+//post
+router.post('/', (req,res) => {
+    const {} = req.body;
+})
+
 module.exports = router;
