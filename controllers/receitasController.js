@@ -24,7 +24,24 @@ router.get('/:codReceita', (req,res) => {
 
 //post
 router.post('/', (req,res) => {
-    const {} = req.body;
+    const {rendePorcoes,nomeReceita,imagemDaReceita,codCliente} = req.body;
+    const query = 'INSERT INTO tbreceitas(rendePorcoes,nomeReceita,imagemDaReceita,codCliente) VALUES (?,?,?,?) ';
+
+    dbConnection.query(query, [rendePorcoes,nomeReceita,imagemDaReceita,codCliente], (err,result) => {
+        if(err){
+            res.status(500).json({
+                mensagem: 'Erro ao adicionar receita'
+            })
+        }else{
+            res.status(201).json({
+                mensagem: 'Receita adicionada com sucesso!',
+                codPasso: result.insertId,
+                body: req.body
+
+
+            })
+        }
+    })
 })
 
 module.exports = router;

@@ -139,8 +139,8 @@ values("Victor","Luis","569314","2004/08/13","733.455.713-35","victor.luis@gmail
 
 
 -- Insirindo dados na tbreceitas 
-insert into tbreceitas(rendePorcoes,nomeReceita,codCliente)
-values(4,"Bolo vegano de brigadeiro",1);
+insert into tbreceitas(rendePorcoes,nomeReceita,imagemDaReceita,codCliente)
+values(4,"Bolo vegano de brigadeiro",1,1);
 
 insert into tbreceitas(rendePorcoes,nomeReceita,codCliente)
 values(7,"Strogonoff vegano de grão de bico e palmito",2);        
@@ -281,13 +281,15 @@ UPDATE tbmedidas SET grama = "g" , quilograma = "Kg" , mililitro = "ml" where co
 -- Atualizando dados na tbquantidades
 update tbquantidades set qtdeIngrediente = "Três xicaras de de oléo atualizado" where codQtde = 1;
 update tbquantidades set nomeQtde = "gramas atualizado"  where codQtde = 2;
-UPDATE tbquantidades SET nomeQtde = "NomeAtualizando", qtdeIngrediente = "QtdeAtualizada" WHERE codQtde = 3;
+update tbquantidades set nomeQtde = "NomeAtualizando", qtdeIngrediente = "QtdeAtualizada" where codQtde = 3;
 
 -- Atualizando dados na tpassps
 update tbpassos set mododePreparo = "Aqueca o forno e coloque uma forma dentro atualizado" where codPasso = 1;
 update tbpassos set tempodePreparo = "5h atualizado com sucesso!" where codPasso = 2;
 update tbpassos set descricao = "Depois adicionar complemento ao seu gosto atualizado" where codPasso = 1;
 UPDATE tbpassos SET mododePreparo = "NomeAtualizado", tempodePreparo = "TempoAtualizado" WHERE codPasso = 1;
+UPDATE tbpassos SET  mododePreparo = "test", tempodePreparo= "test", descricao = "test" where codPasso = 2;
+
 
 -- apagando os dados da tabela 
 delete from tbpassos where codReceita = 5; 

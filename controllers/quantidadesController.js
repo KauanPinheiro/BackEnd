@@ -59,18 +59,18 @@ router.delete('/:codQtde', (req,res) => {
 })
 
 //PUT
-router.put('/:codMedida', (req,res) => {
+router.put('/:codQtde', (req,res) => {
     const {codQtde} = req.params;
     const {nomeQtde,qtdeIngrediente} = req.body;
-    const query = 'UPDATE tbquantidaes SET nomeQtde = ?, qtdeIngrediente = ? WHERE codQtde = ? ';
+    const query = 'UPDATE tbquantidades SET nomeQtde = "?", qtdeIngrediente = "?" WHERE codQtde = ?; ';
 
     dbConnection.query(query, [nomeQtde,qtdeIngrediente,codQtde], (err,result) => {
         if(err) throw err;
             res.status(201).json({
                 mensagem: 'Quantidade alterada com sucesso!',
                     envio:{
-                        nomeQtde: grama,
-                        qtdeIngrediente: quilograma
+                        nomeQtde: nomeQtde,
+                        qtdeIngrediente: qtdeIngrediente
 
                     }
             })
