@@ -35,7 +35,7 @@ router.post('/', (req,res) => {
         }else{
             res.status(201).json({
                 mensagem: 'Receita adicionada com sucesso!',
-                codPasso: result.insertId,
+                codReceita: result.insertId,
                 body: req.body
 
 
@@ -43,5 +43,44 @@ router.post('/', (req,res) => {
         }
     })
 })
+
+//DELETE com cod COMO REFERÊNCIA
+router.delete('/:codReceita', (req,res) => {
+    const {codReceita} = req.params;
+    const query = 'DELETE FROM tbreceitas WHERE codReceita = ?';
+
+    dbConnection.query(query, {codReceita}, (err,result) => {
+        if(err){
+            res.status(500).json({
+                mensagem: 'Erro ao deletar receita'
+            })
+        }else{
+            res.status(201).json({
+                mensagem: 'Receita deletada com sucesso!'
+            })
+        }
+    })
+})
+
+//PUT
+router.put('/:codReceita', (req,res) => {
+    const {codReceita} = req.params;
+    const {rendePorcoes,nomeReceita,imagemDaReceita} = req.body;
+    const query = 'UPDATE tbreceitas SET rendePorcoes = ?, nomeReceita = ?, imagemDaReceita = ? WHERE codReceita = ?';
+
+    dbConnection.query(query, [rendePorcoes,nomeReceita,imagemDaReceita,codReceita], (err,result) => {
+       if(err) throw err;
+       res.status(201).json({
+        mensagem: 'Receita alterada com sucesso!',
+            envio:{
+                rendePorcoes: rendePorcoes,
+                nomeReceita: nomeReceita,
+                imagemDaReceita: imagemDaReceita
+
+            }
+       }) 
+    })
+})
+
 
 module.exports = router;
