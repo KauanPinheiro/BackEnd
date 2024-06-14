@@ -18,7 +18,10 @@ export default class CadastroScreen extends Component {
         return(
             <SafeAreaView style={styles.container}>
                 <ImageBackground source={getImgBackground} style={styles.background}>
-                    <Input/>
+                    <Input placeholder="Name" iconName="user"/>
+                    <Input placeholder="Email" iconName="at"/>
+                    <Input placeholder="Nova senha" iconName="unlock-alt"/>
+                    <Input placeholder="Confirmar senha" iconName="unlock-alt"/>
                 </ImageBackground>  
             </SafeAreaView>
         )
