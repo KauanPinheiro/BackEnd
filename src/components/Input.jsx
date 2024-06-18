@@ -6,8 +6,6 @@ import CommonStyles from "../CommonStyles";
 
 
 
-
-
 export default props => {
 
     return(
@@ -37,16 +35,18 @@ const styles = StyleSheet.create(
     {
         container:{
             flexDirection:"row",
-            alignItems:"center",
-            justifyContent:"center", 
-        },
-        input:{
-            fontFamily: CommonStyles.fontFamily,
-            margin:15,
+            alignItems:"flex-end",
+            justifyContent:"space-between", 
             borderBottomWidth:1,
             borderColor:"#FFECD6",
             borderRadius:6,
-            width: 225
+            
+        },
+        input:{
+            fontFamily: CommonStyles.fontFamily,
+            fontWeight:"bold",
+            alignItems:"flex-end",
+            width:250
         }
     }
 )
