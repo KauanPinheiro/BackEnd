@@ -32,8 +32,8 @@ export default class CadastroScreen extends Component {
                         <Text style={styles.subTitle}>Criar uma conta</Text>
                         <Input placeholder="Name" iconName="user" />
                         <Input placeholder="Email" iconName="at" />
-                        <Input placeholder="Nova senha" iconName="unlock-alt" />
-                        <Input placeholder="Confirmar senha" iconName="unlock-alt" />
+                        <Input placeholder="Nova senha" iconName="lock" />
+                        <Input placeholder="Confirmar senha" iconName="lock" />
                     </View>
 
                 </ImageBackground>
@@ -58,17 +58,19 @@ const styles = StyleSheet.create(
         },
         container2:{
             alignItems:"center",
-            justifyContent:"space-between"
+            justifyContent:"space-between",
         },
         title: {
             fontFamily: "Jomhuria",
             color: CommonStyles.colors.primary,
-            fontWeight: "bold"
+            fontWeight: "400",
+
         },
         subTitle: {
             fontFamily: CommonStyles.fontFamily,
             color: CommonStyles.colors.primary,
-            fontSize: 60
+            fontSize: 40,
+            margin:10
         }
     }
 )

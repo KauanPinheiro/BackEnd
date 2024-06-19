@@ -22,7 +22,7 @@ export default props => {
                     maxLength={60}
                     placeholderTextColor="#FFECD6"
                 />
-                <Icon name={props.iconName} size={20} color="#FFECD6"/>
+                <Icon name={props.iconName} size={20} color="#FFECD6" style={styles.icon}/>
 
             </Pressable>
 
@@ -46,7 +46,11 @@ const styles = StyleSheet.create(
             fontFamily: CommonStyles.fontFamily,
             fontWeight:"bold",
             alignItems:"flex-end",
-            width:250
+            width:250,
+            marginTop:10
+        },
+        icon:{
+            marginRight:5
         }
     }
 )
